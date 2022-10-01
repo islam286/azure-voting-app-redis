@@ -7,7 +7,7 @@ pipeline {
                 echo "$GIT_BRANCH"
             }
         }
-    stages {
+
         stage('docker build') {
             steps {
                 pwsh(script: 'docker images -a')
