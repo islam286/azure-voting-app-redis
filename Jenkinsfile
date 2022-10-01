@@ -12,6 +12,7 @@ pipeline {
             steps {
                 sh(script: 'docker images -a')
                 sh(script: """
+                    sudo /etc/init.d/docker start
                     cd azure-vote/
                     docker images -a
                     docker build -t jenkins pipeline .
