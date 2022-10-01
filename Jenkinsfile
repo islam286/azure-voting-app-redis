@@ -11,7 +11,6 @@ pipeline {
         stage('docker build') {
             steps {
                 sh(script: """
-                    sudo service docker start
                     sudo docker images -a
                     """)
                 sh(script: """
