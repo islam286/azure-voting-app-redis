@@ -7,9 +7,17 @@ pipeline {
                 echo "$GIT_BRANCH"
             }
         }
-        stage('Goodbye') {
+    stages {
+        stage('docker build') {
             steps {
-                echo 'Goodbye World'
+                pwsh(script: 'docker images -a')
+                pwsh(script: """
+                    cd azure-vote/
+                    docker images -a
+                    docker build -t jenkins pipeline .
+                    cd ..
+                """)
+                
             }
         }
 
