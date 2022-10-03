@@ -17,7 +17,7 @@ pipeline {
                    
                     cd azure-vote/
                     docker images -a
-                    docker build -t jenkins pipeline .
+                    docker build -t jenkins-pipeline .
                     cd ..
                 """)
                 
