@@ -11,13 +11,13 @@ pipeline {
         stage('docker build') {
             steps {
                 sh(script: """
-                    docker images -a
+                    sudo docker images -a
                     """)
                 sh(script: """
                    
                     cd azure-vote/
-                    docker images -a
-                    docker build -t jenkins-pipeline .
+                    sudo docker images -a
+                    sudo docker build -t jenkins-pipeline .
                     cd ..
                 """)
                 
@@ -26,7 +26,7 @@ pipeline {
       stage('Start test app') {
          steps {
             sh(script: """
-               docker-compose up -d
+               sudo docker-compose up -d
                ./scripts/test_container.sh
             """)
          }
@@ -54,5 +54,5 @@ pipeline {
          }
       }
     }
-    
+
 }
